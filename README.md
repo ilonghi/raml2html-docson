@@ -3,11 +3,14 @@
 ## Prerequisiti
 ```
 npm install -g raml2html
+npm install -g http-server
 ```
 
 ## Creare la documentazione
 ```
 raml2html --template raml2html_templates/template.nunjucks --input examples/github.raml --output github.html
+http-server
+open http://127.0.0.1:8080/github.html
 ```
 
 ## Appunti

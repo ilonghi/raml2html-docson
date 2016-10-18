@@ -20,17 +20,28 @@
 
       var gDocson;
 
-      // $(document).ready(function() {
+      require.config({
+        baseUrl: "docson",
+        shim : {
+          "bootstrap": {
+            "deps": [
+              "jquery"
+            ]
+          }
+        },
+        paths: {
+          "jquery": "//code.jquery.com/jquery-2.1.1.min",
+          "bootstrap": "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
+          "highlight": "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min"
+        }
+      });
 
-      // FIXME: fare in modo che jquery venga caricato prima di bootstrap
-
-      require.config({ baseUrl: "docson"});
-    	require(["docson", "lib/jquery", "../contrib/bootstrap.min", "../contrib/highlight.min"], function(docson) {
+      require(["docson", "jquery", "bootstrap", "highlight"], function(docson) {
 
         $(function() {
-    			docson.templateBaseUrl = "docson/templates";
-    			gDocson = docson;
-    		});
+          docson.templateBaseUrl = "docson/templates";
+          gDocson = docson;
+        });
 
         $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
           hljs.highlightBlock(block);

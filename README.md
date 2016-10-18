@@ -21,12 +21,6 @@ http-server
 open http://127.0.0.1:8080/github.html
 ```
 
-## Known bugs
-
-* As `requirejs` load file asynchronously and `jquery` need to be loaded **before**
-`bootstrap`, an error can occur. To fix it must be find the way to load js files
-in order. The workaround is not to enable browser caching and press F5
-
 ## Notes
 
 ```
